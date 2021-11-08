@@ -1,5 +1,5 @@
 import React from "react";
-import { StatusBar, TouchableOpacity } from "react-native";
+import { StatusBar, TouchableOpacity, Pressable } from "react-native";
 
 import { View, Image, Text, Modal } from "react-native";
 import { styles } from "./styles";
@@ -27,7 +27,7 @@ export const PlantDetails = ({ visible, setShowDetails, name = "Rosa" }) => {
             style={styles.closeButton}
             onPress={() => closePlantDetails()}
           >
-            <AntDesign name="closecircleo" size={30} color="red" />
+            <AntDesign name="closecircleo" size={30} color="#004b23" />
           </TouchableOpacity>
 
           <Text style={styles.namePlant}>{name}</Text>
@@ -41,6 +41,12 @@ export const PlantDetails = ({ visible, setShowDetails, name = "Rosa" }) => {
               </Text>
             </View>
           </View>
+          <Pressable
+              style={styles.deleteButton}
+              onPress={() => setShowDetails(false)}
+            >
+              <Text style={styles.textStyle}>Deletar</Text>
+            </Pressable>
         </View>
       </View>
     </Modal>

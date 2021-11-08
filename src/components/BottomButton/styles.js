@@ -7,10 +7,12 @@ export const styles = StyleSheet.create({
     height: 80,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: theme.colors.darkGreen,
   },
   button: {
-    backgroundColor: theme.colors.mediumGreen,
+    backgroundColor: theme.colors.darkGreen,
     borderRadius: 50,
+    position: 'absolute',
+    right: 20, 
+    bottom: 20
   },
 });

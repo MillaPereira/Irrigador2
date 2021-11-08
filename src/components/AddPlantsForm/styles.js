@@ -19,8 +19,8 @@ export const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.4)',
   },
   container: {
-    width: 300,
-    height: 500,
+    width: 350,
+    height: 580,
     backgroundColor: "white",
     alignItems: 'center',
     justifyContent: 'center',
@@ -30,6 +30,7 @@ export const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
+    padding: 20,
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 10,
