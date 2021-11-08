@@ -1,41 +1,43 @@
-import React, { useState, useEffect } from "react";
-import { AntDesign } from '@expo/vector-icons'; 
-import { StatusBar } from "react-native";
+import React from "react";
+import { StatusBar, TouchableOpacity } from "react-native";
 
-import {
-  ScrollView,
-  View,
-  FlatList,
-  Image,
-  Text,
-  TouchableOpacity,
-  Modal,
-  Pressable,
-} from "react-native";
+import { View, Image, Text, Modal } from "react-native";
 import { styles } from "./styles";
 
-import regadorImage from '../../assets/regador.png';
+import { AntDesign } from "@expo/vector-icons";
 
-export const PlantDetails = ({ visible, setShowDetails, name="Rosa"}) => {
+import regadorImage from "../../assets/regador.png";
+
+export const PlantDetails = ({ visible, setShowDetails, name = "Rosa" }) => {
+  const closePlantDetails = () => {
+    setShowDetails(false);
+  };
+
   return (
     <Modal animationType="fade" transparent={true} visible={visible}>
       <View style={styles.modalView}>
-        <StatusBar 
-            barStyle="light-content"
-            backgroundColor={visible ? 'rgba(0,0,0,0.4)': 'blue'}
-            transparent
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="rgba(0,0,0,0.4)"
+          transparent
         />
 
         <View style={styles.container}>
-          <Text>{name}</Text>
+          <TouchableOpacity
+            style={styles.closeButton}
+            onPress={() => closePlantDetails()}
+          >
+            <AntDesign name="closecircleo" size={30} color="red" />
+          </TouchableOpacity>
 
+          <Text style={styles.namePlant}>{name}</Text>
           <View style={styles.middleBox}>
-            <Image source={regadorImage} style={styles.image}/>
+            <Image source={regadorImage} style={styles.regadorIcon} />
 
             <View style={styles.greenBox}>
               <Text style={styles.text}>
-                Esta planta deve ser regada todo dia! Não se esqueça, por favor, pois não é só você quem
-                sente sede, ok?
+                Esta planta deve ser regada todo dia! Não se esqueça, por favor,
+                pois não é só você quem sente sede, ok?
               </Text>
             </View>
           </View>

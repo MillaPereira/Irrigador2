@@ -34,7 +34,6 @@ export default function BemVindo() {
         placeholder="Digite seu nome"
         onChangeText={handleInput}
       />
-      <View style={styles.line} />
 
       <TouchableOpacity
         style={styles.button}

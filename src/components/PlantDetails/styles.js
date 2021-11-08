@@ -1,20 +1,19 @@
 import { StyleSheet } from "react-native";
-import Constants from "expo-constants";
-import theme from '../../global/styles/theme';
+import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
   modalView: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(0,0,0,0.4)",
   },
   container: {
     width: 300,
-    height: 500,
-    backgroundColor: "#DADADA",
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: 400,
+    backgroundColor: "#fff", //theme.colors.lightGray,
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 8,
     shadowColor: "#000",
     shadowOffset: {
@@ -25,21 +24,32 @@ export const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 10,
   },
+  text: {
+    fontSize: 15,
+  },
   middleBox: {
-    flexDirection: 'row',
+    flexDirection: "row",
     //justifyContent: 'space-between',
     paddingHorizontal: 30,
   },
-  image: {
+  regadorIcon: {
     height: 40,
-    width: 40, 
-    alignSelf: 'flex-end',
+    width: 40,
+    alignSelf: "center",
     marginRight: 10,
-    marginBottom: 10
-  }, 
+  },
   greenBox: {
-    backgroundColor: "#86DB78",
+    backgroundColor: theme.colors.lightGreen,
     borderRadius: 8,
     padding: 8,
-  }
+  },
+  namePlant: {
+    fontSize: 30,
+    marginBottom: "20%",
+  },
+  closeButton: {
+    position: "absolute",
+    top: 20,
+    right: 20,
+  },
 });

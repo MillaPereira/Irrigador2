@@ -4,7 +4,6 @@ import { theme } from "../../global/styles/theme";
 export default StyleSheet.create({
   container: {
     flex: 1,
-    opacity: 0.77,
     justifyContent: "center",
     alignItems: "center",
   },
