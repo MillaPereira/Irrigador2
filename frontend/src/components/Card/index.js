@@ -7,7 +7,7 @@ import { theme } from "../../global/styles/theme";
 import plantIcon from "../../assets/fotoPlantinha.png";
 import { PlantDetails } from "../PlantDetails";
 
-export const Card = ({ plantName }) => {
+export const Card = ({ name, id_node, description }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
@@ -15,7 +15,7 @@ export const Card = ({ plantName }) => {
       <Image source={plantIcon} style={styles.image} />
 
       <View style={styles.content}>
-        <Text style={styles.text}>{plantName}</Text>
+        <Text style={styles.text}>{name}</Text>
         <View style={styles.line} />
       </View>
 
@@ -23,6 +23,9 @@ export const Card = ({ plantName }) => {
         visible={showDetails}
         setShowDetails={setShowDetails}
         style={styles.plant}
+        name={name}
+        id_node={id_node}
+        description={description}
       />
 
       <TouchableOpacity

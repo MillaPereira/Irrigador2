@@ -1,17 +1,24 @@
 import React from "react";
 import { StatusBar, TouchableOpacity, Pressable } from "react-native";
-
 import { View, Image, Text, Modal } from "react-native";
 import { styles } from "./styles";
-
 import { AntDesign } from "@expo/vector-icons";
-
 import regadorImage from "../../assets/regador.png";
 
-export const PlantDetails = ({ visible, setShowDetails, name = "Rosa" }) => {
+import api from '../../services/api'
+
+export const PlantDetails = ({ visible, setShowDetails, name, id_node, description }) => {
   const closePlantDetails = () => {
     setShowDetails(false);
   };
+
+  const deletePlant = async (id_node) => {
+    try {
+      await api.delete(`delete/plant/${id_node}`)
+    } catch(err) {
+      console.log(err.message);
+    }
+  }
 
   return (
     <Modal animationType="fade" transparent={true} visible={visible}>
@@ -36,14 +43,13 @@ export const PlantDetails = ({ visible, setShowDetails, name = "Rosa" }) => {
 
             <View style={styles.greenBox}>
               <Text style={styles.text}>
-                Esta planta deve ser regada todo dia! Não se esqueça, por favor,
-                pois não é só você quem sente sede, ok?
+                {description}
               </Text>
             </View>
           </View>
           <Pressable
               style={styles.deleteButton}
-              onPress={() => setShowDetails(false)}
+              onPress={() => [setShowDetails(false), deletePlant(id_node)]}
             >
               <Text style={styles.textStyle}>Deletar</Text>
             </Pressable>

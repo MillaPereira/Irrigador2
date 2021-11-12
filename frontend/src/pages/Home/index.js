@@ -3,7 +3,6 @@ import { View, Text } from "react-native";
 import { styles } from "./styles";
 import { ListPlants } from "../../components/ListPlants";
 import { BottomButton } from "../../components/BottomButton";
-import { plants } from "../../DummyData/plants";
 
 export const Home = ({ route }) => {
   const { nameUser } = route.params;
@@ -16,7 +15,7 @@ export const Home = ({ route }) => {
       </View>
 
       <View style={styles.list}>
-        <ListPlants plants={plants} />
+        <ListPlants />
       </View>
       <BottomButton />
     </View>

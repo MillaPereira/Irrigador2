@@ -2,9 +2,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const HttpError = require('./models/HttpError');
 
+const cors = require('cors');
+
 const app = express(); // habilita as funções do express;
+
+app.use(cors({
+  origin: '*'
+}))
+
+
 const routes = require('./routes');
 const dotenv =  require('dotenv');
+
 
 dotenv.config();
 
@@ -18,9 +27,9 @@ app.use((req, res, next) => {
 
 // catch errors
 app.use((err,request,response,next) => {
-    if (err.message) {
+    if (err instanceof HttpError) {
       response.status(err.errorCode);
-      return response.json({ errorMessage: err.message });
+      return response.json({ message: err.message });
     }
 
     return response.status(500).json({ errorMessage: "Unknown error" });
