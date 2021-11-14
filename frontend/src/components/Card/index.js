@@ -4,7 +4,7 @@ import { styles } from "./styles";
 
 import { Fontisto } from "@expo/vector-icons";
 import { theme } from "../../global/styles/theme";
-import plantIcon from "../../assets/fotoPlantinha.png";
+import plantIcon from "../../assets/fotoPlantinha.jpg";
 import { PlantDetails } from "../PlantDetails";
 
 export const Card = ({ name, id_node, description }) => {

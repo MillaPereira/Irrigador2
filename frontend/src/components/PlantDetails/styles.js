@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
   container: {
     width: 300,
     height: 250,
-    backgroundColor: theme.colors.lightGreen, //theme.colors.lightGray,
+    backgroundColor: theme.colors.lightGreen,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 8,
@@ -58,11 +58,11 @@ export const styles = StyleSheet.create({
     textAlign: "center",
   },
   deleteButton: {
-    backgroundColor: '#ba0c0c',
+    backgroundColor: "#ba0c0c",
     borderRadius: 8,
     padding: 8,
     marginTop: "10%",
-    width: "30%",
+    height: 35,
+    width: "40%",
   },
-
 });

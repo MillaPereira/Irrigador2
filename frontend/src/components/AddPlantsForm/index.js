@@ -1,18 +1,10 @@
 import React, { useState } from "react";
 import { StatusBar } from "react-native";
-import {
-  View,
-  Image,
-  Text,
-  TextInput,
-  Modal,
-  Pressable,
-  TextArea,
-} from "react-native";
+import { View, Image, Text, TextInput, Modal, Pressable } from "react-native";
 import { styles } from "./styles";
 import api from "../../services/api";
 
-import logoImg from "../../assets/fotoPlantinha.png";
+import logoImg from "../../assets/fotoPlantinha.jpg";
 
 export const AddPlantsForm = ({ visible = true, setVisible }) => {
   const [name, setName] = useState("");

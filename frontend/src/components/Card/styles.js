@@ -41,8 +41,8 @@ export const styles = StyleSheet.create({
     borderColor: theme.colors.lightGray,
   },
   plant: {
-    flex: 1,  
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });

@@ -3,10 +3,13 @@
     "name": "Irrigador PET",
     "slug": "irrigadorpet",
     "privacy": "public",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/fotoPlantinha.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -15,7 +18,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     }
