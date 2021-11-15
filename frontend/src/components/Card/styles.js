@@ -19,6 +19,8 @@ export const styles = StyleSheet.create({
     height: 42,
     borderRadius: 24,
     marginLeft: 10,
+    borderColor: theme.colors.darkGreen,
+    borderWidth: 0.5,
   },
   content: {
     flex: 1,
