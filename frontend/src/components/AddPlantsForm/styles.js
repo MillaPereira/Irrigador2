@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
   text: {
@@ -11,19 +12,21 @@ export const styles = StyleSheet.create({
     height: 150,
     borderRadius: 75,
     marginBottom: 30,
+    borderColor: theme.colors.darkGreen,
+    borderWidth: 2,
   },
   modalView: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(0,0,0,0.4)",
   },
   container: {
     width: 350,
     height: 580,
     backgroundColor: "white",
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 8,
     shadowColor: "#000",
     shadowOffset: {
@@ -41,7 +44,7 @@ export const styles = StyleSheet.create({
   },
 
   buttonClose: {
-    backgroundColor: "#86DB78",
+    backgroundColor: theme.colors.lightGreen,
     width: 100,
   },
   textStyle: {
@@ -54,22 +57,23 @@ export const styles = StyleSheet.create({
     textAlign: "center",
   },
   buttonsContainer: {
-    width: '80%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    width: "80%",
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginTop: 40,
   },
   inputContainer: {
-    width: '100%',
+    width: "100%",
     //flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: "space-around",
     padding: 10,
   },
-  input: { 
+  input: {
     marginTop: 5,
     borderWidth: 1,
     borderColor: "#DADADA",
     paddingLeft: 10,
-    borderRadius: 8
-  }
+    borderRadius: 8,
+  },
 });
+
