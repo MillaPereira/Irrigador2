@@ -4,10 +4,17 @@ import { View, Image, Text, Modal } from "react-native";
 import { styles } from "./styles";
 import { AntDesign } from "@expo/vector-icons";
 import regadorImage from "../../assets/regador.png";
+import {w3cwebsocket as Websocket} from 'websocket';
 
 import api from '../../services/api'
 
+const client = new Websocket("ws://192.168.0.10:3333");
+
 export const PlantDetails = ({ visible, setShowDetails, name, id_node, description }) => {
+  const sendMessageToNode = (id, frequency) => {
+    client.send(`${id}-${frequency}`);
+  }
+
   const closePlantDetails = () => {
     setShowDetails(false);
   };
@@ -15,6 +22,7 @@ export const PlantDetails = ({ visible, setShowDetails, name, id_node, descripti
   const deletePlant = async (id_node) => {
     try {
       await api.delete(`delete/plant/${id_node}`)
+      sendMessageToNode(id_node, 0);
     } catch(err) {
       console.log(err.message);
     }
