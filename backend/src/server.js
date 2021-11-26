@@ -1,8 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const HttpError = require('./models/HttpError');
+const http = require('http');
+const ws = require('ws');
 
+const dotenv =  require('dotenv');
 const cors = require('cors');
+const routes = require('./routes');
 
 const app = express(); // habilita as funções do express;
 
@@ -10,12 +14,24 @@ app.use(cors({
   origin: '*'
 }))
 
-
-const routes = require('./routes');
-const dotenv =  require('dotenv');
-
+const server = http.createServer(app)
+const wss = new ws.WebSocketServer({ server });
 
 dotenv.config();
+
+wss.on('connection', (ws) => {
+  console.log("New connection!");
+
+  ws.on('message', message => {
+    console.log("Received message: ", message.toString());
+
+    wss.clients.forEach(client => {
+      if (client !== ws) {
+        client.send(message.toString())
+      }
+    })
+  })
+})
 
 app.use(express.json()); // diz que está usando json
 app.use(routes);
@@ -49,6 +65,6 @@ const db_uri = process.env.DB_URI;
 
 
 const port = process.env.PORT;
-app.listen(3333, () => {
+server.listen(3333, () => {
     console.log(`Listening on port ${port}`);
 })
